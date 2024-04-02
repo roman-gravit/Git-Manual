@@ -234,3 +234,24 @@ Show commit logs. The output is given in reverse chronological order by default.
  Status output does not show you any information regarding the committed project history.
 
  --short: Give the output in the short-format.
+
+
+## 13. Git diff
+Diffing is a function that takes two input data sets and outputs the changes between them. 
+git diff is a multi-use Git command that when executed runs a diff function on Git data sources. 
+These data sources can be commits, branches, files and more.
+
+Working tree <=> Staging area : git diff 
+
+Staging area <=> Repository   : git diff  --staged | --cached(legacy)
+
+	```
+	git diff
+	diff --git a/diff_test.txt b/diff_test.txt
+	index 6b0c6cf..b37e70a 100644
+	--- a/diff_test.txt
+	+++ b/diff_test.txt
+	@@ -1 +1 @@
+	-this is a git diff test example
+	+this is a diff example
+	```
