@@ -1,7 +1,7 @@
  # Git
  
 
- ## 1. What is Git
+## 1. What is Git
 
 It is a free and open-source version control system used to handle small to very large projects efficiently. 
 
@@ -143,19 +143,66 @@ There is **no main repository.**
    but never directly commit to it. 
 
 
-## 7. Saving changes (Git add)
+## 7. Git concepts and architecture
+
+Git however uses a three-tree architecture:
+
+ - Repository (being tracked by Git)
+
+ - Staging index (containing changes that are about to be committed into the repository)
+ 
+ - The Working Tree (containing changes that may not be tracked by Git)
+
+We added, then we committed, it was a two-step process. When we made our first commit, we didn’t just perform a commit. 
+First, we used the add command. We added, then we committed. 
+It was a two-step process (added our files to the staging index, and then from there we committed to the repository).
+
+
+## 8. Saving changes (Git add)
 
 The commands: git add, git status, and git commit are all used in combination to save a snapshot of a Git project's current state:
 There are simple three steps for the main flow:
 
-- Make changes
-
-- Add the changes
-
-- Commit changes to the repository with a message
+**Make changes => Add the changes => Commit changes to the repository with a message**
 
 
-## 8. Git log
+## 9. Git commit hash value
+
+In Git, every commit you make is assigned a unique SHA-1 hash value. This hash value is like a fingerprint for each commit.
+It helps Git keep track of every change made in the repository. Git uses a specific type of hash value known as SHA-1.
+Every time you commit changes, Git generates a unique hash value. 
+This value is a SHA-1 hash of the commit’s contents, including its code changes and metadata(author, date, commit message...)
+Think of these hash values as unique IDs. They allow Git to track each commit individually. 
+This tracking is what enables Git’s powerful version control capabilities.
+
+**Summarize:**
+
+ - Gite generates a checksum for each change set. Checksum algorithms convert data into a simple number.
+   The sama data always equals same checksum 
+
+ - Data integrity is fundamental. Changing data will change checksum.
+
+ - Git uses SHA-1 hash algorithm to create checksums: 40-character hex string. 
+
+
+## 10. HEAD
+
+HEAD can be termed as a special ref that points to the current commit. 
+However, HEAD can change depending on the latest commit that we have checked out in our git directory. 
+
+``` git show HEAD ``` - To verify the HEAD status use this command and it will also show the HEAD location.
+
+We can check out our HEAD in the .git/HEAD file. It will contain, for ex:
+
+``` ref: refs/heads/main ```
+
+#### Detached HEAD ####
+
+In rare cases, the HEAD file does NOT contain a branch reference, but a SHA-1 value of a specific revision. 
+This happens when you checkout a specific commit, tag, or remote branch. Your repository is then in a state called **Detached HEAD**
+
+
+## 11. Git log
 
 Show commit logs. The output is given in reverse chronological order by default.
 
