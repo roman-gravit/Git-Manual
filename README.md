@@ -122,7 +122,7 @@ There is **no main repository.**
   Get all config file entries:  ``` git config --list [--global | --local | --system] ```
 
 
-  ## 5. Git init  ##
+## 5. Git init  ##
 
   **git init** create an empty Git repository or reinitialize an existing one.
   It can be used to convert an existing, unversioned project to a Git repository or initialize a new, empty repository. 
@@ -134,10 +134,47 @@ There is **no main repository.**
   A HEAD file is also created which points to the currently checked out commit.
 
 
-  ## 6. Bare repositories ##
+## 6. Bare repositories ##
   
    ```--- git init --bare ```	Initialize an empty Git repository, but omit the working directory. 
    
    Shared repositories should always be created with the --bare flag. The --bare flag creates a repository that doesn’t have a working directory, 
    making it impossible to edit files and commit changes in that repository. You would create a bare repository to git push and git pull from, 
    but never directly commit to it. 
+
+
+## 7. Saving changes (Git add)
+
+The commands: git add, git status, and git commit are all used in combination to save a snapshot of a Git project's current state:
+There are simple three steps for the main flow:
+
+- Make changes
+
+- Add the changes
+
+- Commit changes to the repository with a message
+
+
+## 8. Git log
+
+Show commit logs. The output is given in reverse chronological order by default.
+
+#### Commit Limiting ####
+
+  -n <number>: Limit the number of commits to output
+
+  --since=<date> --after=<date>: Show commits more recent than a specific date
+
+  --until=<date> --before=<date>:  Show commits older than a specific date
+
+  --author=<pattern> --committer=<pattern>:  Limit the commits output to ones with author/committer
+
+  --grep=<pattern>: Limit the commits output to ones with a log message that matches the regular expression 
+
+  ... many others...
+
+#### Commit Formatting ####
+
+ --oneline: This is a shorthand for "--pretty=oneline --abbrev-commit" used together
+
+ ... many others...
