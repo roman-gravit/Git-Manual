@@ -311,11 +311,13 @@ Note: Specifying --staged AND --worktree: restores both working tree and staging
 Or you can use reset command:  ``` git reset HEAD <file>... ```
 
 
-## 19. Cancel(Change) last commit in repository
+## 19. Change last commit in repository
 
-``` git commit --amend ```  Replace the tip of the current branch by creating a new commit.
+``` git commit --amend ```  Replace the head of the current branch by creating a new commit.
 
 Previous commit will be deleted, new commit with the new SHA1 will be created.
+
+--no-edit: do not ask to write(change) commit message
 
 
 ## 20. Get previous version of the file from repository
@@ -323,7 +325,7 @@ Previous commit will be deleted, new commit with the new SHA1 will be created.
 Or you can use old command:  ``` git chechout SHA1 <file>... ```
 
 
-## 20. Revert last changes
+## 21. Revert last changes
 
 git revert:  Revert some existing commits.  
 
@@ -331,3 +333,48 @@ This requires your working tree to be clean (no modifications from the HEAD comm
 Note: git revert is used to record some **new commits** to reverse the effect of some earlier commits (often only a faulty one).
 
 If you want to throw away all uncommitted changes in your working directory, you should see **git reset**
+
+
+## 22. Git reset
+
+ --soft: do not change staging index and working tree. Reset only repository. 
+ --mixed(default):  changes staging index to match repository, does not change working directory 
+ --hard: changes staging index and repository and working folder
+
+
+## 23. Git clone
+
+**git clone** Clone a repository into a new directory
+
+Clones a repository into a newly created directory, creates remote-tracking branches for each branch 
+in the cloned repository, and creates and checks out an initial branch that is forked from the cloned 
+repository’s currently active branch.
+Local repositories also can be cloned.
+
+```git clone -b <branch> --single-branch  repository-url  branch``` : clone only songle branch  
+
+``` --depth <depth> ```  : clone only last M commits
+
+
+## 24. Git stash
+
+**git stash** : Stash the changes in a dirty working directory away
+
+- push: Save your local modifications to a new stash entry and roll them back to HEAD (in the working tree and in the index) 
+
+- pop: **Remove** a single stashed state from the stash list and **apply** it on top of the current working tree state
+
+- apply:  Like pop, but **do not remove** the state from the stash list
+
+- list: List the stash entries that you currently have
+
+- clear: Remove all the stash entries
+
+- drop:  Remove a single stash entry from the list of stash entries
+
+``` git stash save "name" ```  : store stash with the name.
+
+
+
+## 25. Branches
+https://learngitbranching.js.org/
