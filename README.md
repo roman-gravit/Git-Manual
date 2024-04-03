@@ -311,6 +311,23 @@ Note: Specifying --staged AND --worktree: restores both working tree and staging
 Or you can use reset command:  ``` git reset HEAD <file>... ```
 
 
-## 19. Cancel last commit in repository
+## 19. Cancel(Change) last commit in repository
 
 ``` git commit --amend ```  Replace the tip of the current branch by creating a new commit.
+
+Previous commit will be deleted, new commit with the new SHA1 will be created.
+
+
+## 20. Get previous version of the file from repository
+
+Or you can use old command:  ``` git chechout SHA1 <file>... ```
+
+
+## 20. Revert last changes
+
+git revert:  Revert some existing commits.  
+
+This requires your working tree to be clean (no modifications from the HEAD commit).
+Note: git revert is used to record some **new commits** to reverse the effect of some earlier commits (often only a faulty one).
+
+If you want to throw away all uncommitted changes in your working directory, you should see **git reset**
