@@ -270,12 +270,12 @@ rm --cached: removal should happen only on the staging area.
 
 ## 15. Rename files
 
-git-mv - Move or rename a file, a directory, or a symlink
+**git mv** - Move or rename a file, a directory, or a symlink
 
 
 ## 16. Removing the Untracked files 
 
-**git-clean:**  Remove untracked files from the working tree
+**git clean:**  Remove untracked files from the working tree
 
 Cleans the working tree by recursively removing files that are not under version control, starting from the current directory.
 
@@ -292,7 +292,7 @@ Cleans the working tree by recursively removing files that are not under version
 
 ## 17. Cancel changes in Working Tree
 
-git-restore: Restore working tree files, **--worktree** flag can be added, but it is by default.
+**git restore:** Restore working tree files, **--worktree** flag can be added, but it is by default.
 
 ```git restore <file> ``` : remove all the changes that are not staged for commit. 
 
@@ -301,9 +301,12 @@ Or you can use old command:  ```git checkout -- <file>```
 
 ## 18. Cancel changes in Staging Area
 
-git-restore --staged: Specifying --staged will only restore the staging area.
+**git restore** --staged: Specifying --staged will only restore the staging area.
 
 
 ``` git restore --staged <file>... ```
 
 Note: Specifying --staged AND --worktree: restores both working tree and staging.
+
+
+
