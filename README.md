@@ -255,3 +255,19 @@ Staging area <=> Repository   : git diff  --staged | --cached(legacy)
 	-this is a git diff test example
 	+this is a diff example
 	```
+
+
+## 14. Delete files
+
+git -rm - Remove files from the working tree and from the staging area. This command is opposite to *add*
+
+rm --cached: removal should happen only on the staging area.	
+
+  -r: Recursively removes folders
+
+  --dry-run: only see an output of the files that Git would remove, but no files are actually deleted.
+
+
+## 15. Rename files
+
+git-mv - Move or rename a file, a directory, or a symlink
