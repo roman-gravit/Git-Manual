@@ -370,11 +370,34 @@ Local repositories also can be cloned.
 
 - clear: Remove all the stash entries
 
+- u: Add untracked files to the stash also
+
+- a: Add files from .gitignore to the stash also
+
 - drop:  Remove a single stash entry from the list of stash entries
 
 ``` git stash save "name" ```  : store stash with the name.
 
+``` git checkout <stash-id> -- <filename> ```  : get from exact stash exact file
 
 
-## 25. Branches
+## 25. Git Merge vs Rebase
+
+- Merge: creates a new “merge commit” in the feature branch that ties together the histories of both branches.
+        
+      Pro: Merging is nice because it’s a non-destructive operation. 
+           The existing branches are not changed in any way. This avoids all of the potential pitfalls
+
+      Contra: Feature branch will have an extraneous merge commit every time you need to incorporate upstream changes. 
+              If main is very active, this can pollute your feature branch’s history quite a bit.
+
+- Rebase: moves the entire feature branch to begin on the tip of the main branch, effectively incorporating all of the new commits in main.
+
+      Pro: you get a much cleaner project history. This makes it easier to navigate your project with commands like git log
+
+      Contra: Rebase makes you resolve conflicts in the order they were created to continue the rebase. 
+              Unfortunately, this means more work for you, as you may need to fix the same conflicts repeatedly
+
+
+## 26. Branches
 https://learngitbranching.js.org/
