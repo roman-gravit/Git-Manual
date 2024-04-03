@@ -296,7 +296,7 @@ Cleans the working tree by recursively removing files that are not under version
 
 ```git restore <file> ``` : remove all the changes that are not staged for commit. 
 
-Or you can use old command:  ```git checkout -- <file>``` 
+Or you can use old command:  ```git checkout -- <file>```    
 
 
 ## 18. Cancel changes in Staging Area
@@ -308,5 +308,9 @@ Or you can use old command:  ```git checkout -- <file>```
 
 Note: Specifying --staged AND --worktree: restores both working tree and staging.
 
+Or you can use reset command:  ``` git reset HEAD <file>... ```
 
 
+## 19. Cancel last commit in repository
+
+``` git commit --amend ```  Replace the tip of the current branch by creating a new commit.
