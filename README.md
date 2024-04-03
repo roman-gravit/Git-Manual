@@ -227,7 +227,7 @@ Show commit logs. The output is given in reverse chronological order by default.
  ... many others...
 
 
- ## 12. Git status
+## 12. Git status
 
  The **git status** command displays the state of the working directory and the staging area. 
  It lets you see which changes have been staged, which haven't, and which files aren't being tracked by Git. 
@@ -271,3 +271,26 @@ rm --cached: removal should happen only on the staging area.
 ## 15. Rename files
 
 git-mv - Move or rename a file, a directory, or a symlink
+
+
+## 16. Removing the Untracked Files 
+
+**git-clean:**  Remove untracked files from the working tree
+
+Cleans the working tree by recursively removing files that are not under version control, starting from the current directory.
+
+  -f:  forces the removal of untracked files. Directories and ignored files are left alone
+
+  -d: forces removal of untracked git directories
+  
+  -x: removes untracked files that map to .gitignore entries.
+
+  -i | --interactive:  Show what would be done and clean files interactively
+
+  -n |--dry-run: Don’t actually remove anything, just show what would be done
+
+
+## 17. Cancel changes in Working Tree
+
+**git checkout --** : remove all the changes that are not staged for commit
+
