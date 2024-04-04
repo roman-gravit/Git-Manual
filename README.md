@@ -1,4 +1,4 @@
- # Git
+# Git
  
 
 ## 1. What is Git
@@ -85,7 +85,11 @@ machine, so if there's an outage, every local copy becomes a backup copy and tea
 There is **no main repository.**
 
 
-## 4. Git config  ##
+## 4. Git  and GitHub are the same?
+Git is a version control system,  GutHub is a service for hosting of the Git repositories.       
+
+
+## 5. Git config  ##
 
 #### git config levels and files ####
 
@@ -122,7 +126,13 @@ There is **no main repository.**
   Get all config file entries:  ``` git config --list [--global | --local | --system] ```
 
 
-## 5. Git init  ##
+## 5.1 What is a “.gitingnore” file
+
+Introduce file or folders to exclude from a project. 
+These files will not be affected by Git commands bit will be exist in working directory.
+
+
+## 6. Git init  ##
 
   **git init** create an empty Git repository or reinitialize an existing one.
   It can be used to convert an existing, unversioned project to a Git repository or initialize a new, empty repository. 
@@ -134,7 +144,7 @@ There is **no main repository.**
   A HEAD file is also created which points to the currently checked out commit.
 
 
-## 6. Bare repositories ##
+## 7. Bare repositories ##
   
    ```--- git init --bare ```	Initialize an empty Git repository, but omit the working directory. 
    
@@ -143,7 +153,7 @@ There is **no main repository.**
    but never directly commit to it. 
 
 
-## 7. Git concepts and architecture
+## 8. Git concepts and architecture
 
 Git however uses a three-tree architecture:
 
@@ -158,7 +168,7 @@ First, we used the add command. We added, then we committed.
 It was a two-step process (added our files to the staging index, and then from there we committed to the repository).
 
 
-## 8. Saving changes (Git add)
+## 9. Saving changes (Git add)
 
 The commands: git add, git status, and git commit are all used in combination to save a snapshot of a Git project's current state:
 There are simple three steps for the main flow:
@@ -166,8 +176,11 @@ There are simple three steps for the main flow:
 **Make changes => Add the changes => Commit changes to the repository with a message**
 
 
-## 9. Git commit hash value
+## 10. Git commit hash value
 
+Commit is the way to save changes to a branch. The snapshot of the current state is created. 
+The commit object contains a tree of blob objects and other objects which represent the commit (snapshot). 
+The snapshot can be used to revert branch to that state.  
 In Git, every commit you make is assigned a unique SHA-1 hash value. This hash value is like a fingerprint for each commit.
 It helps Git keep track of every change made in the repository. Git uses a specific type of hash value known as SHA-1.
 Every time you commit changes, Git generates a unique hash value. 
@@ -185,7 +198,12 @@ This tracking is what enables Git’s powerful version control capabilities.
  - Git uses SHA-1 hash algorithm to create checksums: 40-character hex string. 
 
 
-## 10. HEAD
+## 10.1 How to create an empty commit
+
+``` git commit –allow-empty  -m “message” ```
+
+
+## 11. HEAD
 
 HEAD can be termed as a special ref that points to the current commit. 
 However, HEAD can change depending on the latest commit that we have checked out in our git directory. 
@@ -199,10 +217,15 @@ We can check out our HEAD in the .git/HEAD file. It will contain, for ex:
 #### Detached HEAD ####
 
 In rare cases, the HEAD file does NOT contain a branch reference, but a SHA-1 value of a specific revision. 
-This happens when you checkout a specific commit, tag, or remote branch. Your repository is then in a state called **Detached HEAD**
+This happens when you checkout a specific commit, tag, or remote branch. 
+Your repository is then in a state called **Detached HEAD**
+
+#### How to fix a *detached head*
+
+Create a new branch from the detached HEAD state.
 
 
-## 11. Git log
+## 12. Git log
 
 Show commit logs. The output is given in reverse chronological order by default.
 
@@ -218,6 +241,8 @@ Show commit logs. The output is given in reverse chronological order by default.
 
   --grep=<pattern>: Limit the commits output to ones with a log message that matches the regular expression 
 
+  --graph: Displays the commits history in graphical view
+
   ... many others...
 
 #### Commit Formatting ####
@@ -227,7 +252,18 @@ Show commit logs. The output is given in reverse chronological order by default.
  ... many others...
 
 
-## 12. Git status
+## 12.1 What is git reflog
+
+Manage reflog information.
+
+Reference logs, or "reflogs", record when the tips of branches and other references were updated in the local repository. 
+
+Reflogs are useful in various Git commands, to specify the old value of a reference. 
+
+``` git reflog --all ``` : Show of all changes made to repo.        
+
+
+## 13. Git status
 
  The **git status** command displays the state of the working directory and the staging area. 
  It lets you see which changes have been staged, which haven't, and which files aren't being tracked by Git. 
@@ -236,14 +272,18 @@ Show commit logs. The output is given in reverse chronological order by default.
  --short: Give the output in the short-format.
 
 
-## 13. Git diff
+## 14. Git diff
 Diffing is a function that takes two input data sets and outputs the changes between them. 
 git diff is a multi-use Git command that when executed runs a diff function on Git data sources. 
 These data sources can be commits, branches, files and more.
 
-Working tree <=> Staging area : git diff 
+Branch1  <=> Branch2 :  ``` git diff <branch>  <branch> ``` 
 
-Staging area <=> Repository   : git diff  --staged | --cached(legacy)
+Commit1 <=> Commit2 :  ``` git diff  sha1  sha2 ``` 
+
+Working tree <=> Staging area :  ``` git diff ``` 
+
+Staging area <=> Repository   :  ``` git diff  --staged | --cached(legacy) ```
 
 	```
 	git diff
@@ -257,7 +297,7 @@ Staging area <=> Repository   : git diff  --staged | --cached(legacy)
 	```
 
 
-## 14. Delete files
+## 15. Delete files
 
 git -rm - Remove files from the working tree and from the staging area. This command is opposite to *add*
 
@@ -268,12 +308,12 @@ rm --cached: removal should happen only on the staging area.
   --dry-run: only see an output of the files that Git would remove, but no files are actually deleted.
 
 
-## 15. Rename files
+## 16. Rename files
 
 **git mv** - Move or rename a file, a directory, or a symlink
 
 
-## 16. Removing the Untracked files 
+## 17. Removing the Untracked files: git clean
 
 **git clean:**  Remove untracked files from the working tree
 
@@ -290,7 +330,7 @@ Cleans the working tree by recursively removing files that are not under version
   -n |--dry-run: Don’t actually remove anything, just show what would be done
 
 
-## 17. Cancel changes in Working Tree
+## 18. Cancel changes in Working Tree
 
 **git restore:** Restore working tree files, **--worktree** flag can be added, but it is by default.
 
@@ -299,7 +339,7 @@ Cleans the working tree by recursively removing files that are not under version
 Or you can use old command:  ```git checkout -- <file>```    
 
 
-## 18. Cancel changes in Staging Area
+## 19. Cancel changes in Staging Area
 
 **git restore** --staged: Specifying --staged will only restore the staging area.
 
@@ -311,7 +351,7 @@ Note: Specifying --staged AND --worktree: restores both working tree and staging
 Or you can use reset command:  ``` git reset HEAD <file>... ```
 
 
-## 19. Change last commit in repository
+## 20. Change last commit in repository
 
 ``` git commit --amend ```  Replace the head of the current branch by creating a new commit.
 
@@ -320,12 +360,17 @@ Previous commit will be deleted, new commit with the new SHA1 will be created.
 --no-edit: do not ask to write(change) commit message
 
 
-## 20. Get previous version of the file from repository
+## 20.1 How to ignore changes in a tracked file
+
+``` git update-index –assume-unchanged <filename> ```
+
+
+## 21. Get previous version of the file from repository
 
 Or you can use old command:  ``` git chechout SHA1 <file>... ```
 
 
-## 21. Revert last changes
+## 22. Revert last changes
 
 git revert:  Revert some existing commits.  
 
@@ -335,14 +380,14 @@ Note: git revert is used to record some **new commits** to reverse the effect of
 If you want to throw away all uncommitted changes in your working directory, you should see **git reset**
 
 
-## 22. Git reset
+## 23. Git reset
 
  --soft: do not change staging index and working tree. Reset only repository. 
  --mixed(default):  changes staging index to match repository, does not change working directory 
  --hard: changes staging index and repository and working folder
 
 
-## 23. Git clone
+## 24. Git clone
 
 **git clone** Clone a repository into a new directory
 
@@ -356,7 +401,7 @@ Local repositories also can be cloned.
 ``` --depth <depth> ```  : clone only last M commits
 
 
-## 24. Git stash
+## 25. Git stash
 
 **git stash** : Stash the changes in a dirty working directory away
 
@@ -381,7 +426,10 @@ Local repositories also can be cloned.
 ``` git checkout <stash-id> -- <filename> ```  : get from exact stash exact file
 
 
-## 25. Git Merge vs Rebase
+## 26. Git Merge vs Rebase
+
+Merge can be **fast-forward** – target branch is updated to the latest commit of the source branch  
+or **three-way merge**: branch histories are combined into a new commit.
 
 - Merge: creates a new “merge commit” in the feature branch that ties together the histories of both branches.
         
@@ -391,6 +439,7 @@ Local repositories also can be cloned.
       Contra: Feature branch will have an extraneous merge commit every time you need to incorporate upstream changes. 
               If main is very active, this can pollute your feature branch’s history quite a bit.
 
+
 - Rebase: moves the entire feature branch to begin on the tip of the main branch, effectively incorporating all of the new commits in main.
 
       Pro: you get a much cleaner project history. This makes it easier to navigate your project with commands like git log
@@ -399,5 +448,161 @@ Local repositories also can be cloned.
               Unfortunately, this means more work for you, as you may need to fix the same conflicts repeatedly
 
 
-## 26. Branches
+## 27. What is a conflict in Git
+
+Occurs when two branches have made changes to the same lines in a file OR one branch deletes a file and another modifies it. 
+The developer must manually resolve the conflicts.
+
+
+
+
+## 28. What is branch, create/switch
+
+It is the way to isolate development work on a separate task (new feature or bugfix). 
+The changes in branch will not affect to main master branch (or other branches).
+
+	```
+	git branch <name>    
+	git switch <name>       
+	
+	```
+
+## 29. How to delete a branch
+
+``` git branch –d <name> ```  :  Delete local branch (not active for now)
+
+``` git branch –D <name> ```  :  Delete local branch which is not fully merged
+
+``` git push –d  origin <name> ```  : Delete remote branch 
+
+
+## 30. How to rename a branch
+
+``` git -m <newname>  ```  : Rename current branch
+
+``` git -m  <oldname> <newname>  ``` : Rename other branch
+
+
+## 30. Branches test site
 https://learngitbranching.js.org/
+
+
+## 31. How to list all the remote repositories
+
+``` git remote ```       : List of short names
+
+``` git remote –v  ```   : List of short names + URL (fetch + push)
+
+
+## 31.1 How to list remote branches    
+
+``` git branch –r ```
+
+
+## 32. git fetch VS git pull 
+
+git pull:  fetch PLUS integrate changes to current active branch
+
+git fetch:  downloads updates from a remote to your local without integrating them to local branches.
+
+
+## 33. GitFlow
+
+GitFlow – master branch, develop branch, feature branches, hotfix branches, release branches.
+
+
+## 34. How to handle huge binary files in Git
+
+- Git LFS is a Git extension for working with large files in a separate Git repository. 
+
+
+## 35. What is git ls-tree
+
+List the content of the given tree object:   ``` git ls-tree –r HEAD ```
+
+
+## 36. What is git hooks
+
+They are scripts that are executed after a specific event occurs in a Git repository. 
+
+Server/Client hooks:  inside .git/hooks folder.  
+
+For example: hook commit-msg to check commit message on client side.
+
+
+## 37. What is SubGit
+
+Tool for managing Git repositories with Subversion history. 
+It allows you to keep Subversion history while moving to Git. It will help you to migrate from SVN to Git.
+
+
+## 38. Explain git attributes  (inside file .gitattributes)
+
+gitattributes - Defining attributes per path. A gitattributes file is a simple text file that gives attributes to pathnames.
+
+Use the .gitattributes file to declare changes to file handling and display, for ex:
+
+ - Collapse generated files in diffs
+
+ - Create custom merge drivers.
+
+ - Create exclusive lock files to mark files as read-only.
+
+ - Change syntax highlighting in diffs.
+
+ - Declare binary file handling with Git LFS.
+
+ - Declare languages used in your repository.
+
+
+## 39. What is ‘git archive’    
+
+Create git archive from current working tree.
+
+
+## 40. git bisect 
+
+Make binary search in the commits history. Steps: 
+
+ - git bisect start        
+ 
+ - Check HEAD commit and set as *bad*:   git bisect bad   
+
+ - Check commit and set as *good*:  git bisect good <sha1>
+
+ - git starts binary search – somewhere between bad and good, make checkout and you can test this commit.
+
+ -  If it’s still bad – tell git about it: git bisect bad OR git bisect good
+
+ -  After all call git bisect reset
+
+
+## 41. Git tag
+
+Tag marks an important point in a repository’s history. Git supports two types of tags:
+
+ - **Lightweight** tags point to specific commits, and contain no other information. 
+   Also known as soft tags. Create or remove them as needed.  ``` git tag <name>  ```
+
+ - **Annotated** tags contain metadata, can be signed for verification purposes, and can’t be changed.
+
+
+
+``` git tag –l``` : list of tags       
+
+``` git show <tagname> ```    
+
+ By default tags will not be pushed to origin, must push with flag –tags:   ``` git push –tags ```
+
+
+## 42. How to change the URL of remote repository
+
+``` git remote set-url <renotename>  <remoteurl> ```
+
+## 43. What are submodules in Git
+
+Submodules enable of the Git repo within the another as a subdirectory. 
+For ex: integrating external project or lib into your project.
+
+``` git submodule update -remote ```  : Fetch  and update your submodules
+
