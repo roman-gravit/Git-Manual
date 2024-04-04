@@ -513,7 +513,7 @@ GitFlow – master branch, develop branch, feature branches, hotfix branches, re
 
 ## 34. How to handle huge binary files in Git
 
-- Git LFS is a Git extension for working with large files in a separate Git repository. 
+Git LFS is a Git extension for working with large files in a separate Git repository. 
 
 
 ## 35. What is git ls-tree
