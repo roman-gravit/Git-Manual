@@ -330,7 +330,7 @@ Cleans the working tree by recursively removing files that are not under version
   -n |--dry-run: Don’t actually remove anything, just show what would be done
 
 
-## 18. Cancel changes in Working Tree
+## 18. Cancel changes in Working Tree: git restore
 
 **git restore:** Restore working tree files, **--worktree** flag can be added, but it is by default.
 
@@ -339,7 +339,7 @@ Cleans the working tree by recursively removing files that are not under version
 Or you can use old command:  ```git checkout -- <file>```    
 
 
-## 19. Cancel changes in Staging Area
+## 19. Cancel changes in Staging Area: git restore --staged
 
 **git restore** --staged: Specifying --staged will only restore the staging area.
 
@@ -351,7 +351,7 @@ Note: Specifying --staged AND --worktree: restores both working tree and staging
 Or you can use reset command:  ``` git reset HEAD <file>... ```
 
 
-## 20. Change last commit in repository
+## 20. Change last commit in repository: git commit --amend
 
 ``` git commit --amend ```  Replace the head of the current branch by creating a new commit.
 
@@ -360,7 +360,7 @@ Previous commit will be deleted, new commit with the new SHA1 will be created.
 --no-edit: do not ask to write(change) commit message
 
 
-## 20.1 How to ignore changes in a tracked file
+## 20.1 How to ignore changes in a tracked file: –assume-unchanged
 
 ``` git update-index –assume-unchanged <filename> ```
 
@@ -370,9 +370,9 @@ Previous commit will be deleted, new commit with the new SHA1 will be created.
 Or you can use old command:  ``` git chechout SHA1 <file>... ```
 
 
-## 22. Revert last changes
+## 22. Revert last changes: git revert
 
-git revert:  Revert some existing commits.  
+``` git revert``` :  Revert some existing commits.  
 
 This requires your working tree to be clean (no modifications from the HEAD commit).
 Note: git revert is used to record some **new commits** to reverse the effect of some earlier commits (often only a faulty one).
