@@ -126,7 +126,7 @@ Git is a version control system,  GutHub is a service for hosting of the Git rep
   Get all config file entries:  ``` git config --list [--global | --local | --system] ```
 
 
-## 5.1 What is a “.gitingnore” file
+## 5.1 What is a “.gitignore” file
 
 Introduce file or folders to exclude from a project. 
 These files will not be affected by Git commands bit will be exist in working directory.
