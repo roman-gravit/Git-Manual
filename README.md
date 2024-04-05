@@ -132,7 +132,7 @@ Introduce file or folders to exclude from a project.
 These files will not be affected by Git commands bit will be exist in working directory.
 
 
-## 6. Git init  ##
+## 6. Git init
 
   **git init** create an empty Git repository or reinitialize an existing one.
   It can be used to convert an existing, unversioned project to a Git repository or initialize a new, empty repository. 
@@ -198,12 +198,12 @@ This tracking is what enables Git’s powerful version control capabilities.
  - Git uses SHA-1 hash algorithm to create checksums: 40-character hex string. 
 
 
-## 10.1 How to create an empty commit
+## 11 How to create an empty commit
 
 ``` git commit –allow-empty  -m “message” ```
 
 
-## 11. HEAD
+## 12. HEAD
 
 HEAD can be termed as a special ref that points to the current commit. 
 However, HEAD can change depending on the latest commit that we have checked out in our git directory. 
@@ -225,7 +225,10 @@ Your repository is then in a state called **Detached HEAD**
 Create a new branch from the detached HEAD state.
 
 
-## 12. Git log
+# Commands
+
+
+## 13. log
 
 Show commit logs. The output is given in reverse chronological order by default.
 
@@ -252,7 +255,7 @@ Show commit logs. The output is given in reverse chronological order by default.
  ... many others...
 
 
-## 12.1 What is git reflog
+## 14 reflog
 
 Manage reflog information.
 
@@ -263,7 +266,7 @@ Reflogs are useful in various Git commands, to specify the old value of a refere
 ``` git reflog --all ``` : Show of all changes made to repo.        
 
 
-## 13. Git status
+## 15. status
 
  The **git status** command displays the state of the working directory and the staging area. 
  It lets you see which changes have been staged, which haven't, and which files aren't being tracked by Git. 
@@ -272,7 +275,7 @@ Reflogs are useful in various Git commands, to specify the old value of a refere
  --short: Give the output in the short-format.
 
 
-## 14. Git diff
+## 16. diff
 Diffing is a function that takes two input data sets and outputs the changes between them. 
 git diff is a multi-use Git command that when executed runs a diff function on Git data sources. 
 These data sources can be commits, branches, files and more.
@@ -297,7 +300,7 @@ Staging area <=> Repository   :  ``` git diff  --staged | --cached(legacy) ```
 	```
 
 
-## 15. Delete files
+## 17. Delete files: rm 
 
 git -rm - Remove files from the working tree and from the staging area. This command is opposite to *add*
 
@@ -308,12 +311,12 @@ rm --cached: removal should happen only on the staging area.
   --dry-run: only see an output of the files that Git would remove, but no files are actually deleted.
 
 
-## 16. Rename files
+## 18. Rename files: mv
 
 **git mv** - Move or rename a file, a directory, or a symlink
 
 
-## 17. Removing the Untracked files: git clean
+## 19. Removing the Untracked files: clean
 
 **git clean:**  Remove untracked files from the working tree
 
@@ -330,7 +333,7 @@ Cleans the working tree by recursively removing files that are not under version
   -n |--dry-run: Don’t actually remove anything, just show what would be done
 
 
-## 18. Cancel changes in Working Tree: git restore
+## 20. Cancel changes in Working Tree: restore
 
 **git restore:** Restore working tree files, **--worktree** flag can be added, but it is by default.
 
@@ -339,7 +342,7 @@ Cleans the working tree by recursively removing files that are not under version
 Or you can use old command:  ```git checkout -- <file>```    
 
 
-## 19. Cancel changes in Staging Area: git restore --staged
+## 21. Cancel changes in Staging Area: restore --staged
 
 **git restore** --staged: Specifying --staged will only restore the staging area.
 
@@ -351,7 +354,7 @@ Note: Specifying --staged AND --worktree: restores both working tree and staging
 Or you can use reset command:  ``` git reset HEAD <file>... ```
 
 
-## 20. Change last commit in repository: git commit --amend
+## 22. Change last commit in repository: commit --amend
 
 ``` git commit --amend ```  Replace the head of the current branch by creating a new commit.
 
@@ -360,17 +363,17 @@ Previous commit will be deleted, new commit with the new SHA1 will be created.
 --no-edit: do not ask to write(change) commit message
 
 
-## 20.1 How to ignore changes in a tracked file: –assume-unchanged
+## 23. How to ignore changes in a tracked file: –assume-unchanged
 
 ``` git update-index –assume-unchanged <filename> ```
 
 
-## 21. Get previous version of the file from repository
+## 24. Get previous version of the file from repository: chechout
 
 Or you can use old command:  ``` git chechout SHA1 <file>... ```
 
 
-## 22. Revert last changes: git revert
+## 25. Revert last changes: revert
 
 ``` git revert``` :  Revert some existing commits.  
 
@@ -380,14 +383,18 @@ Note: git revert is used to record some **new commits** to reverse the effect of
 If you want to throw away all uncommitted changes in your working directory, you should see **git reset**
 
 
-## 23. Git reset
+## 26. reset
 
- --soft: do not change staging index and working tree. Reset only repository. 
- --mixed(default):  changes staging index to match repository, does not change working directory 
- --hard: changes staging index and repository and working folder
+Reset current HEAD to the specified state. The git reset command is a complex and versatile tool for undoing changes. 
+
+ --soft: do not change staging index and working tree. Reset only repository, come back only for one command(commit)
+
+ --mixed(default):  changes staging index to match repository, does not change working directory, come back for two commands(commit, add)
+ 
+ --hard: changes staging index and repository and working folder. come back for all 3 commands(commit, add, changes in working tree)
 
 
-## 24. Git clone
+## 27. clone
 
 **git clone** Clone a repository into a new directory
 
@@ -401,7 +408,7 @@ Local repositories also can be cloned.
 ``` --depth <depth> ```  : clone only last M commits
 
 
-## 25. Git stash
+## 28. stash
 
 **git stash** : Stash the changes in a dirty working directory away
 
@@ -426,7 +433,7 @@ Local repositories also can be cloned.
 ``` git checkout <stash-id> -- <filename> ```  : get from exact stash exact file
 
 
-## 26. Git Merge vs Rebase
+## 29. Git Merge vs Rebase
 
 Merge can be **fast-forward** – target branch is updated to the latest commit of the source branch  
 or **three-way merge**: branch histories are combined into a new commit.
@@ -448,15 +455,15 @@ or **three-way merge**: branch histories are combined into a new commit.
               Unfortunately, this means more work for you, as you may need to fix the same conflicts repeatedly
 
 
-## 27. What is a conflict in Git
+## 30. What is a conflict in Git
 
 Occurs when two branches have made changes to the same lines in a file OR one branch deletes a file and another modifies it. 
 The developer must manually resolve the conflicts.
 
 
+# Branches
 
-
-## 28. What is branch, create/switch
+## 31. What is branch, create/switch
 
 It is the way to isolate development work on a separate task (new feature or bugfix). 
 The changes in branch will not affect to main master branch (or other branches).
@@ -467,7 +474,7 @@ The changes in branch will not affect to main master branch (or other branches).
 	
 	```
 
-## 29. How to delete a branch
+## 32. How to delete a branch
 
 ``` git branch –d <name> ```  :  Delete local branch (not active for now)
 
@@ -476,52 +483,62 @@ The changes in branch will not affect to main master branch (or other branches).
 ``` git push –d  origin <name> ```  : Delete remote branch 
 
 
-## 30. How to rename a branch
+## 33. How to rename a branch
 
 ``` git -m <newname>  ```  : Rename current branch
 
 ``` git -m  <oldname> <newname>  ``` : Rename other branch
 
+## 34. How to make existing local branch track remote branch
 
-## 30. Branches test site
+``` git branch –u  remote/branch  <local>    ```   
+
+
+## 35. Branches test site
 https://learngitbranching.js.org/
 
 
-## 31. How to list all the remote repositories
+## 36. How to list all the remote repositories
 
 ``` git remote ```       : List of short names
 
 ``` git remote –v  ```   : List of short names + URL (fetch + push)
 
 
-## 31.1 How to list remote branches    
+## 37. How to list remote branches    
 
 ``` git branch –r ```
 
 
-## 32. git fetch VS git pull 
+## 38. git fetch VS git pull 
 
 git pull:  fetch PLUS integrate changes to current active branch
 
 git fetch:  downloads updates from a remote to your local without integrating them to local branches.
 
 
-## 33. GitFlow
+## 39. GitFlow
 
 GitFlow – master branch, develop branch, feature branches, hotfix branches, release branches.
 
+## 39.1 How do you list all branches that contain a specific commit
 
-## 34. How to handle huge binary files in Git
+``` git branch –contain <sha1> ```
+
+
+# Misc
+
+## 40. How to handle huge binary files in Git
 
 Git LFS is a Git extension for working with large files in a separate Git repository. 
 
 
-## 35. What is git ls-tree
+## 41. What is git ls-tree
 
 List the content of the given tree object:   ``` git ls-tree –r HEAD ```
 
 
-## 36. What is git hooks
+## 42. What is git hooks
 
 They are scripts that are executed after a specific event occurs in a Git repository. 
 
@@ -530,13 +547,13 @@ Server/Client hooks:  inside .git/hooks folder.
 For example: hook commit-msg to check commit message on client side.
 
 
-## 37. What is SubGit
+## 43. What is SubGit
 
 Tool for managing Git repositories with Subversion history. 
 It allows you to keep Subversion history while moving to Git. It will help you to migrate from SVN to Git.
 
 
-## 38. Explain git attributes  (inside file .gitattributes)
+## 44. Explain git attributes  (inside file .gitattributes)
 
 gitattributes - Defining attributes per path. A gitattributes file is a simple text file that gives attributes to pathnames.
 
@@ -555,12 +572,12 @@ Use the .gitattributes file to declare changes to file handling and display, for
  - Declare languages used in your repository.
 
 
-## 39. What is ‘git archive’    
+## 45. What is ‘git archive’    
 
 Create git archive from current working tree.
 
 
-## 40. git bisect 
+## 46. Binary search: bisect 
 
 Make binary search in the commits history. Steps: 
 
@@ -577,7 +594,7 @@ Make binary search in the commits history. Steps:
  -  After all call git bisect reset
 
 
-## 41. Git tag
+## 47. Git tag
 
 Tag marks an important point in a repository’s history. Git supports two types of tags:
 
@@ -595,14 +612,36 @@ Tag marks an important point in a repository’s history. Git supports two types
  By default tags will not be pushed to origin, must push with flag –tags:   ``` git push –tags ```
 
 
-## 42. How to change the URL of remote repository
+## 48. How to change the URL of remote repository
 
 ``` git remote set-url <renotename>  <remoteurl> ```
 
-## 43. What are submodules in Git
+## 49. What are submodules in Git
 
 Submodules enable of the Git repo within the another as a subdirectory. 
 For ex: integrating external project or lib into your project.
 
 ``` git submodule update -remote ```  : Fetch  and update your submodules
 
+
+## 50. Git Aliases
+
+Alias is synonymous with a shortcut. It is important to note that there is no direct git alias command. 
+Aliases are created through the use of the git config command and the Git configuration files. 
+As with other configuration values, aliases can be created in a local or global scope.
+
+``` git config --global alias.co checkout ```
+
+## 51. prune 
+
+The git prune command is an internal housekeeping utility that cleans up unreachable or "orphaned" Git objects. 
+Unreachable objects are those that are inaccessible by any refs.  
+Any commit that cannot be accessed through a branch or tag is considered unreachable.
+Prune is considered a garbage collection command and is a child command of the git gc command
+
+## 52. gc
+
+The git gc command is a repository maintenance command. The "gc" stands for garbage collection.
+Executing git gc is literally telling Git to clean up the mess it's made in the current repository. 
+git gc is a parent command and git prune is a child. git gc will internally trigger git prune. 
+git prune is used to remove Git objects that have been deemed inaccessible by the git gc configuration.
