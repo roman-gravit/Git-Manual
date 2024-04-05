@@ -679,3 +679,10 @@ Other developers examine the proposed changes, discussed them and then integrate
 Show what revision and author last modified each line of a file. 
 
 ``` git blame .gitignore ```
+
+
+## 57. How to squash commits
+
+``` git merge --squash ``` allows you to create a single commit on top of the current branch whose effect is the same as merging another branch.
+
+``` git rebase -i <sha1> ```  combine multiple commits into one 
