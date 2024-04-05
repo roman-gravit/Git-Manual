@@ -686,3 +686,24 @@ Show what revision and author last modified each line of a file.
 ``` git merge --squash ``` allows you to create a single commit on top of the current branch whose effect is the same as merging another branch.
 
 ``` git rebase -i <sha1> ```  combine multiple commits into one 
+
+
+## 58. cherry-pick
+
+ Apply the changes introduced by some existing commits. Move commits to another branch.
+ Pick up certain needed commits from one branch and apply them to another branch. 
+ If you want to apply some important commits(s) and not the whole branch, SHA1 will be changed. 
+
+ 1. Apply hot fix (single commit) from branch to master.
+
+	```  
+	git switch master
+	git cherry-pick <sha1>
+	
+	```
+
+ --edit : need to edit the commit message
+
+ --no-commit: move changes to working directory, if you want to add smth after applying cherry-pick
+
+ 2. Move one commit from other branch to your current branch. 
