@@ -512,9 +512,9 @@ https://learngitbranching.js.org/
 
 ## 38. git fetch VS git pull 
 
-git pull:  fetch PLUS integrate changes to current active branch
+git pull:  fetch AND integrate changes to current active branch
 
-git fetch:  downloads updates from a remote to your local without integrating them to local branches.
+git fetch: downloads updates from a remote to your local without integrating them to local branches.
 
 
 ## 39. GitFlow
@@ -523,7 +523,8 @@ GitFlow – master branch, develop branch, feature branches, hotfix branches, re
 
 ## 39.1 How do you list all branches that contain a specific commit
 
-``` git branch –contain <sha1> ```
+``` git branch –contain <sha1>```
+
 
 
 # Misc
@@ -645,3 +646,36 @@ The git gc command is a repository maintenance command. The "gc" stands for garb
 Executing git gc is literally telling Git to clean up the mess it's made in the current repository. 
 git gc is a parent command and git prune is a child. git gc will internally trigger git prune. 
 git prune is used to remove Git objects that have been deemed inaccessible by the git gc configuration.
+
+
+## 53. show
+
+Shows one or more objects (blobs, trees, tags and commits).
+
+ - For commits it shows the log message and textual diff. It also presents the merge commit in a special format as produced by git diff-tree --cc.
+
+ - For tags, it shows the tag message and the referenced objects.
+
+ - For trees, it shows the names (equivalent to git ls-tree with --name-only).
+
+ - For plain blobs, it shows the plain contents.
+
+
+## 54. How do I find a commit by a message
+
+To search the commit log (across all branches) for the given text:  ``` git log --all --grep='Build 0051' ```
+
+To do so while ignoring case in the grep search:  ```git log --all -i --grep='Build 0051' ```
+
+
+## 55. What is a pull request in Git
+
+A pull request servers as a mechanism for contributing to a project hosted on GitHub. 
+Developer did modifications within own branch, uploads changes to a repo and then make a pull request.  
+Other developers examine the proposed changes, discussed them and then integrate the pull request to main branch.
+
+## 56. blame
+
+Show what revision and author last modified each line of a file. 
+
+``` git blame .gitignore ```
